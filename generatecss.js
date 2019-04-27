@@ -71,12 +71,13 @@ function getCss() {
     const buttonColor = '#000';
     const buttonBackgroundColor = '#EEE';
     const buttonBorderColor = '#CCC';
-    const buttonHoverBackgroundColor = '#EEE';
+    const buttonHoverBackgroundColor = '#DDD';
     const buttonHoverColor = '#000';
     const buttonHoverBorderColor = '#000';
     const inputColor = '#000';
-    const smallMargin = 45;
-    const borderRadius = 15;
+    const bigMargin = 24
+    const smallMargin = bigMargin * 0.5;
+    const borderRadius = 8;
     
     let css = 
     `
@@ -91,7 +92,7 @@ function getCss() {
             position: relative;
             display: block;
             margin: 0;
-            padding: ${smallMargin * 0.5}px;
+            padding: ${smallMargin}px;
             font-size: 0;
             word-spacing: 0;
             letter-spacing: 0;
@@ -126,38 +127,51 @@ function getCss() {
             height: 100%;
         }
         .nen-container > .row > .column {
-            border-left: ${smallMargin * 0.5}px solid ${borderColor};
+            border-left: ${smallMargin}px solid ${borderColor};
         }
         .nen-container > .row > .column:first-child {
             border-left: 0;
         }
         .nen-container .row > .column .content {
             position: relative;
-            padding: ${smallMargin}px;
+            padding: ${bigMargin}px;
         }
         .nen-container .content > * {
             position: relative;
             box-sizing: border-box;
-            margin: ${smallMargin}px 0px;
+            margin: ${bigMargin}px 0px;
         }
         .nen-container .row > .column .button {
             display: inline-block;
-            border: 1px solid ${buttonBorderColor};
+            border-color: ${buttonBorderColor};
+            border-style: solid; 
+            border-top-width: 1px;
+            border-right-width: 3px;
+            border-bottom-width: 1px;
+            border-left-width: 3px;
             padding: ${smallMargin}px;
             outline: 0;
             background-color: ${buttonBackgroundColor};
             color: ${buttonColor};
+            box-shadow: 0px 0px 5px 1px ${buttonBorderColor};
         }
         .nen-container .row > .column .button:hover {
             cursor: pointer;
             background-color: ${buttonHoverBackgroundColor};
             border-color: ${buttonHoverBorderColor};
             color: ${buttonHoverColor};
-            transition: border-color 0.2s;
+            box-shadow: 0px 0px 5px 1px ${buttonHoverBorderColor};
+            border-right-width: 4px;
+            border-left-width: 4px;
+            transition: border 0.4s;
         }
         .nen-container .row > .column .input {
             display: block;
-            border: 1px solid ${borderColor};
+            border-color: ${borderColor};
+            border-style: solid;
+            border-width: 1px;
+            border-bottom-width: 2px;
+            border-top-width: 2px;
             padding: ${smallMargin}px;
             outline: 0;
             background-color: ${backgroundColor};
@@ -199,7 +213,7 @@ function getCss() {
             display: table-cell;
             vertical-align: middle;
             width: auto;
-            margin-right: ${smallMargin}px;
+            margin-right: ${bigMargin}px;
         }
         .nen-container .row > .column .m-rm {
             margin: 0;
@@ -207,9 +221,9 @@ function getCss() {
         .nen-container .row > .column .p-rm {
             padding: 0;
         }
-        ${paddMarginAll(smallMargin, '.nen-container .row > .column', '')}
-        ${paddMarginAll(smallMargin * 0.5, '.nen-container .row > .column', '-half')}
-        ${paddMarginAll(smallMargin * 2, '.nen-container .row > .column', '-double')}
+        ${paddMarginAll(bigMargin, '.nen-container .row > .column', '')}
+        ${paddMarginAll(smallMargin, '.nen-container .row > .column', '-half')}
+        ${paddMarginAll(bigMargin * 2, '.nen-container .row > .column', '-double')}
         ${paddMarginAll(0, '.nen-container .row > .column', '-rm')}
         ${paddMarginHalves(0, '.nen-container .row > .column', '-rm')}
         .nen-container .row > .column .center, .nen-container > .row .center {
@@ -219,17 +233,20 @@ function getCss() {
             margin-right: auto;
         }
         .nen-container .border {
-            margin: ${smallMargin}px 0px;
+            margin: ${bigMargin}px 0px;
             padding: ${smallMargin}px;
             border-color: ${borderColor};
             border-width: 1px;
             border-style: solid;
+            border-bottom-width: 2px;
         }
         .nen-container .border.b2 {
             border-width: 2px;
+            border-bottom-width: 3px;
         }
         .nen-container .border.b3 {
             border-width: 3px;
+            border-bottom-width: 4px;
         }
         .nen-container .bt-rm {
             border-top: 0;
